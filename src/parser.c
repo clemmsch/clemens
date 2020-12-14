@@ -13,7 +13,7 @@ ParserStatus startParser(TokenList* list, char* source) {
     {
         // memset(lex, 0, 256);
 
-        while(source[i] != ' ' && source[i] != '\n' && source[i] != '\0' && source[i] != '(' || source[i] != ')') {
+        while(source[i] != ' ' && source[i] != '\n' && source[i] != '\0') {
             lex[lexi++] = source[i++];
         }
         lex[lexi] = '\0';
@@ -21,18 +21,24 @@ ParserStatus startParser(TokenList* list, char* source) {
         // A Hash implies a numerical constant
         if (lex[0] == '#') {
             int num = getNumberFromParser(lex);
+            printf("NUMBER: %d\n", num);
             addToTokenList(list, createToken(NUMBER, num, line));
         }
 
         // Must be an instruction
         else {
             int inst = getInstructionFromParser(lex);
-            if (inst >= 0)
+//            printf("Inst: '%d'\n", inst);
+            // FIXME Make this better
+            printf("Lex: %s\n", lex);
+            if (inst = 0) {
+                printf("INST: %s\n", lex);
                 addToTokenList(list, createToken(INST, inst, line));
-            else {
-                printf("C001 | Syntax Error: Invalid Instruction '%s' on line '%s'\n", lex, line);
+           } else {
+               // TODO Add line to error
+                printf(" C001 | Syntax error: no such instruction '%s'\n", lex);
                 return PARSER_SYNTAX_ERROR;
-            }
+           }
         }
 
 
@@ -65,7 +71,11 @@ uint32_t getNumberFromParser(const char* buf) {
 // TODO Add more
 TokenInst getInstructionFromParser(const char* buf) {
     // TODO Replace with switch
-    if(strcmp(buf, "push") == 0) 
+    if (strcmp(buf, "push") == 0)
         return PUSH;
-    return (TokenInst)-1;
+    if (strcmp(buf, "add") == 0)
+        return ADD;
+    if (strcmp(buf, "hlt") == 0)
+        return HLT;
+    return (TokenInst) -1;
 }

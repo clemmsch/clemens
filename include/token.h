@@ -36,7 +36,7 @@ struct _TokenList {
 typedef struct _TokenList TokenList;
 
 // TODO Consider implementing
-// TokenList* createTokenList(int size);
+void createTokenList(TokenList* list, int size);
 void addToTokenList(TokenList* list, Token* token);
 Token* getTokenFromList(TokenList* list, int index);
 // void destroyTokenList(TokenList* list);

@@ -16,11 +16,16 @@ int main(int argc, char** argv)
 
 	if (strcmp(argv[1], "compile") == 0) {
 		char* source = readAsciiFile(argv[2]);
-		printf("%s\n", source);
-		TokenList* tokens = {0}; // FIXME Replace me
+		TokenList tokens;
+		createTokenList(&tokens, 1);
 		ParserStatus pstat = startParser(&tokens, source);
 		if (pstat != PARSER_SUCESS)
 			return 1;
+
+		for (int i = 0; i < tokens.ptr; i++) {
+			Token* t = getTokenFromList(&tokens, i);
+			printf("%d, %d, %d\n", t->type, t->data, t->line);
+		}
 
 		// free(tokens);
 		free(source);

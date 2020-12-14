@@ -177,6 +177,10 @@ publish/
 *.pubxml
 *.publishproj
 
+# Thingies
+*.o
+*.exe
+
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained
 # in these scripts will be unencrypted
@@ -344,3 +348,8 @@ healthchecksdb
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+
+# Thingies
+*.o
+*.exe
+*.exe.stackdump
