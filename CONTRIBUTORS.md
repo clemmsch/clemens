@@ -11,3 +11,5 @@ This is the only rule that exists, if you follow it, you will receive your place
 ## CONTRIBUTORS
 #### Owner
 [somekindofpanem](https://github.com/somekindofpanem)
+
+#### Contributors
