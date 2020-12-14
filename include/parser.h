@@ -5,6 +5,7 @@
 #include "token.h"   
 
 void startParser(TokenList* list, char* source);
+int getNumberFromParser(char* buf);
 
 
 

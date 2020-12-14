@@ -1,6 +1,11 @@
 #ifndef CLES_TOKEN_H
     #define CLES_TOKEN_H
 
+enum _TokenType {
+    INST,   // Instruction
+    NUMBER,    // Number
+};
+
 struct _Token {
     int type;
     int data;
@@ -9,7 +14,7 @@ struct _Token {
 
 typedef struct _Token Token;
 
-Token* createToken(int data, int type, int line);
+Token* createToken(int type, int data, int line);
 void destroyToken(Token* token);
 
 struct _TokenList {
