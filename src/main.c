@@ -18,9 +18,9 @@ int main(int argc, char** argv)
 		char* source = readAsciiFile(argv[2]);
 		printf("%s\n", source);
 		TokenList* tokens;
+		startParser(&tokens, source);
 
-
-		free(tokens);
+		// free(tokens);
 		free(source);
 	}
 

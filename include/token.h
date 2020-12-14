@@ -2,8 +2,8 @@
     #define CLES_TOKEN_H
 
 struct _Token {
-    int data;
     int type;
+    int data;
     int line;
 };
 
