@@ -1,10 +1,20 @@
 #ifndef CLES_TOKEN_H
     #define CLES_TOKEN_H
 
+#include <stdlib.h>
+
 enum _TokenType {
     INST,   // Instruction
     NUMBER,    // Number
 };
+
+enum _TokenInst {
+    PUSH,
+    ADD,
+    HLT,
+};
+
+typedef enum _TokenInst TokenInst;
 
 struct _Token {
     int type;
@@ -25,9 +35,10 @@ struct _TokenList {
 
 typedef struct _TokenList TokenList;
 
-TokenList* createTokenList(int size);
+// TODO Consider implementing
+// TokenList* createTokenList(int size);
 void addToTokenList(TokenList* list, Token* token);
 Token* getTokenFromList(TokenList* list, int index);
-void destroyTokenList(TokenList* list);
+// void destroyTokenList(TokenList* list);
 
 #endif // CLES_TOKEN_H

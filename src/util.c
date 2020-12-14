@@ -8,7 +8,7 @@ char* readAsciiFile(const char* path)
     FILE* file = fopen(path, "r");
     if (!file) {
         printf("Couldn't open file '%s'\n", path);
-        return NULL; // [TODO] Replace, we do not want any null
+        return NULL; // TODO Replace, we do not want any null
     }
 
     // Read the file & close it

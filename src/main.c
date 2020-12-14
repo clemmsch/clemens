@@ -17,8 +17,10 @@ int main(int argc, char** argv)
 	if (strcmp(argv[1], "compile") == 0) {
 		char* source = readAsciiFile(argv[2]);
 		printf("%s\n", source);
-		TokenList* tokens;
-		startParser(&tokens, source);
+		TokenList* tokens = {0}; // FIXME Replace me
+		ParserStatus pstat = startParser(&tokens, source);
+		if (pstat != PARSER_SUCESS)
+			return 1;
 
 		// free(tokens);
 		free(source);
